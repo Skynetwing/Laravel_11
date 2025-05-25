@@ -22,14 +22,14 @@ class RoleController extends Controller
         $this->middleware('permission:role-delete', ['only' => ['destroy']]);
     }
 
-    public function index(Request $request): View
+    public function index(Request $request)
     {
         $roles = Role::orderBy('id', 'DESC')->paginate(5);
         return view('roles.index', compact('roles'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    public function create(): View
+    public function create()
     {
         $permission = Permission::all()
             ->sortBy([
@@ -59,7 +59,7 @@ class RoleController extends Controller
         return view('roles.create', compact('permission'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|unique:roles,name',
@@ -80,7 +80,7 @@ class RoleController extends Controller
             ->with('success', 'Role created successfully');
     }
 
-    public function show($id): View
+    public function show($id)
     {
         $role = Role::find($id);
         $rolePermissions = Permission::join("role_has_permissions", "role_has_permissions.permission_id", "=", "permissions.id")
@@ -90,7 +90,7 @@ class RoleController extends Controller
         return view('roles.show', compact('role', 'rolePermissions'));
     }
 
-    public function edit($id): View
+    public function edit($id)
     {
         $permission = Permission::all()
             ->sortBy([
@@ -125,7 +125,7 @@ class RoleController extends Controller
         return view('roles.edit', compact('role', 'permission', 'rolePermissions'));
     }
 
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -149,7 +149,7 @@ class RoleController extends Controller
             ->with('success', 'Role updated successfully');
     }
 
-    public function destroy($id): RedirectResponse
+    public function destroy($id)
     {
         $role = DB::table("roles")->where('id', $id)->first();
         if ($role && $role->name === 'Super Admin') {

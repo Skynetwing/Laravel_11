@@ -17,29 +17,29 @@ class UserController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:users', ['only' => ['index','show','create','store','edit','update','destroy']]);
-        $this->middleware('permission:menu-manage-users', ['only' => ['index','show','create','store','edit','update','destroy']]);
-        $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:user-create', ['only' => ['create','store']]);
-        $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:users', ['only' => ['index', 'show', 'create', 'store', 'edit', 'update', 'destroy']]);
+        $this->middleware('permission:menu-manage-users', ['only' => ['index', 'show', 'create', 'store', 'edit', 'update', 'destroy']]);
+        $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:user-delete', ['only' => ['destroy']]);
     }
 
-    public function index(Request $request): View
+    public function index(Request $request)
     {
         $data = User::whereNot('user_type', 'customer')->latest()->paginate(5);
         return view('users.index', compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    public function create(): View
+    public function create()
     {
         // $roles = Role::pluck('name', 'name')->all();
         $roles = Role::where('name', '!=', 'Super Admin')->pluck('name', 'name')->all();
         return view('users.create', compact('roles'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -72,14 +72,14 @@ class UserController extends Controller
             ->with('success', 'User created successfully');
     }
 
-    public function show($id): View
+    public function show($id)
     {
         $user = User::find($id);
 
         return view('users.show', compact('user'));
     }
 
-    public function edit($id): View
+    public function edit($id)
     {
         $user = User::find($id);
         // Check if the user is a "Super Admin"
@@ -94,7 +94,7 @@ class UserController extends Controller
         return view('users.edit', compact('user', 'roles', 'userRole'));
     }
 
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -146,7 +146,7 @@ class UserController extends Controller
             ->with('success', 'User updated successfully');
     }
 
-    public function destroy($id): RedirectResponse
+    public function destroy($id)
     {
         $user = User::find($id);
         // Check if the user has the 'Super Admin' role
@@ -158,5 +158,4 @@ class UserController extends Controller
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully');
     }
-
 }

@@ -18,8 +18,10 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
-    Route::resource('users', UserController::class);
     route::post('groups-position', [RoleController::class, 'groupsPosition']);
     route::post('permissions-position', [RoleController::class, 'permissionsPosition']);
+
+    Route::resource('users', UserController::class);
+
     route::get('settings', [SettingsController::class, 'index'])->name('settings');
 });
