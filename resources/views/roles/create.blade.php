@@ -39,7 +39,7 @@
                 <strong>Permission:</strong>
                 <div class="row" id="permission-card">
                     @foreach ($permission as $group => $groupedPermissions)
-                        <div class="col-3 card m-1 permission_group_position"
+                        <div class="col-4 card permission_group_position"
                             data-group-position="{{$groupedPermissions['position_group']}}"
                             data-group-name="{{$groupedPermissions['group']}}">
                             <p><b>{{$groupedPermissions['group'] ?: 'Unassigned' }}</b></p>

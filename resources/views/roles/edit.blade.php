@@ -72,7 +72,7 @@
                     <strong>Permission:</strong>
                     <div class="row" id="permission-card">
                         @foreach ($permission as $group => $groupedPermissions)
-                            <div class="col-3 card m-1 permission_group_position"
+                            <div class="col-4 card permission_group_position"
                                 data-group-position="{{ $groupedPermissions['position_group'] }}"
                                 data-group-name="{{ $groupedPermissions['group'] }}">
                                 <p><b>{{ $groupedPermissions['group'] ?: 'Unassigned' }}</b></p>
@@ -92,12 +92,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary btn-sm mb-3">
-                    <i class="fa-solid fa-floppy-disk"></i>
-                    Submit
-                </button>
-            </div>
+            {{-- @if ($role->name != 'Super Admin') --}}
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-sm mb-3">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Submit
+                    </button>
+                </div>
+            {{-- @endif --}}
         </div>
     </form>
 @endsection

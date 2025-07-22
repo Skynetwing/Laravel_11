@@ -2,7 +2,7 @@
     <div id="sidebar" class="sidebar sidebar-with-footer">
         <div class="app-brand">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('assets/images/logo.png')}}" alt="Skynetwing">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="Skynetwing">
                 <span class="brand-name">Skynetwing</span>
             </a>
         </div>
@@ -94,21 +94,11 @@
                 <li class="section-title">
                     Settings
                 </li>
-                <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                        data-target="#settings" aria-expanded="false" aria-controls="settings">
+                <li class="">
+                    <a class="sidenav-item-link" href="{{ route('settings') }}">
                         <i class="mdi mdi-settings"></i>
-                        <span class="nav-text">Settings</span> <b class="caret"></b>
+                        <span class="nav-text">Settings</span>
                     </a>
-                    <ul class="collapse" id="settings" data-parent="#sidebar-menu">
-                        <div class="sub-menu">
-                            <li>
-                                <a class="sidenav-item-link" href="{{ route('settings') }}">
-                                    <span class="nav-text">Settings</span>
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
                 </li>
             </ul>
         </div>
