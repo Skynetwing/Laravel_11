@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RazorpayController;
 use App\Http\Controllers\RoleController;
@@ -33,4 +34,7 @@ Route::middleware('auth')->group(function () {
     // File Upload with Progress Bar
     Route::get('file', [FileUploadController::class, 'index'])->name('file.index');
     Route::post('upload', [FileUploadController::class, 'upload'])->name('file.upload');
+
+    // Send Mail
+    Route::get('send', [MailController::class, 'index'])->name('mail.index');
 });

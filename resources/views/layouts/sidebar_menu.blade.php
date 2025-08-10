@@ -93,6 +93,11 @@
                                     <span class="nav-text">File Upload with Progress Bar</span>
                                 </a>
                             </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ route('mail.index') }}">
+                                    <span class="nav-text">Send Mail</span>
+                                </a>
+                            </li>
                         </div>
                     </ul>
                 </li>
