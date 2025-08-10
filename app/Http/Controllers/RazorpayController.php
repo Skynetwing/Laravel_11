@@ -31,19 +31,19 @@ class RazorpayController extends Controller
             'user_id' => auth()->id() ?? null
         ]);
 
-        Payment::create([
-            'razorpay_order_id' => $order->id,
-            'razorpay_payment_id' => "",
-            'razorpay_signature' => "",
-            'amount' => $amountPaise,
-            'currency' => $order->currency,
-            'status' => $order->status,
-            'user_id' => auth()->id() ?? null,
-            'meta' => json_encode([
-                'receipt' => $receiptId,
-                'notes' => $order->notes
-            ]),
-        ]);
+        // Payment::create([
+        //     'razorpay_order_id' => $order->id,
+        //     'razorpay_payment_id' => "",
+        //     'razorpay_signature' => "",
+        //     'amount' => $amountPaise,
+        //     'currency' => $order->currency,
+        //     'status' => $order->status,
+        //     'user_id' => auth()->id() ?? null,
+        //     'meta' => json_encode([
+        //         'receipt' => $receiptId,
+        //         'notes' => $order->notes
+        //     ]),
+        // ]);
 
         return view('razorpay.payment', [
             'order_id' => $order['id'],

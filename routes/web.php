@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RazorpayController;
@@ -28,4 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::get('razorpay', [RazorpayController::class, 'index'])->name('razorpay.index');
     Route::post('razorpay/payment', [RazorpayController::class, 'payment'])->name('razorpay.payment');
     Route::get('razorpay/callback', [RazorpayController::class, 'callback'])->name('razorpay.callback');
+
+    // File Upload with Progress Bar
+    Route::get('file', [FileUploadController::class, 'index'])->name('file.index');
+    Route::post('upload', [FileUploadController::class, 'upload'])->name('file.upload');
 });

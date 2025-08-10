@@ -89,8 +89,8 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="card.html">
-                                    <span class="nav-text">Side Menu 2</span>
+                                <a class="sidenav-item-link" href="{{ route('file.index') }}">
+                                    <span class="nav-text">File Upload with Progress Bar</span>
                                 </a>
                             </li>
                         </div>
