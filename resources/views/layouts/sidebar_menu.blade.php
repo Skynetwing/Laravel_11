@@ -56,16 +56,22 @@
                 @endcan
 
                 <li class="section-title">
-                    Side Menu
+                    Payment Gateway
                 </li>
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                         data-target="#ui-elements" aria-expanded="false" aria-controls="ui-elements">
                         <i class="mdi mdi-folder-outline"></i>
-                        <span class="nav-text">Side Menu</span> <b class="caret"></b>
+                        <span class="nav-text">Payment</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse" id="ui-elements" data-parent="#sidebar-menu">
                         <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ route('razorpay.index') }}">
+                                    <span class="nav-text">Razorpay</span>
+                                </a>
+                            </li>
+
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                     data-target="#buttons" aria-expanded="false" aria-controls="buttons">

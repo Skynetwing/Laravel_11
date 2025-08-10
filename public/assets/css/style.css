@@ -11601,7 +11601,7 @@ button {
 
 /* ===== BUTTONS ===== */
 .btn {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   box-shadow: none !important;
   padding: 0.3125rem 1rem;
 }
