@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class TestMail extends Mailable
+class TestMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -29,9 +29,7 @@ class TestMail extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: $this->subject,
-        );
+        return new Envelope(subject: $this->subject);
     }
 
     /**
@@ -39,9 +37,7 @@ class TestMail extends Mailable
      */
     public function content(): Content
     {
-        return new Content(
-            view: 'sendMail',
-        );
+        return new Content(view: 'sendMail');
     }
 
     /**

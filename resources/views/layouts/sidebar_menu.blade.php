@@ -71,6 +71,16 @@
                                     <span class="nav-text">Razorpay</span>
                                 </a>
                             </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ route('file.index') }}">
+                                    <span class="nav-text">File Upload</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ route('mail.index') }}">
+                                    <span class="nav-text">Send Mail</span>
+                                </a>
+                            </li>
 
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
@@ -88,16 +98,7 @@
                                     </div>
                                 </ul>
                             </li>
-                            <li>
-                                <a class="sidenav-item-link" href="{{ route('file.index') }}">
-                                    <span class="nav-text">File Upload with Progress Bar</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="sidenav-item-link" href="{{ route('mail.index') }}">
-                                    <span class="nav-text">Send Mail</span>
-                                </a>
-                            </li>
+
                         </div>
                     </ul>
                 </li>

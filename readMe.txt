@@ -17,3 +17,29 @@ php artisan migrate
 php artisan db:seed --class=PermissionTableSeeder
 php artisan db:seed --class=CreateAdminUserSeeder
 
+
+// Razorpay
+composer require razorpay/razorpay
+php artisan make:controller RazorpayController
+php artisan make:model Payment
+php artisan make:migration create_payments_table
+php artisan make:class Services/PaymentService
+
+
+// Send Mail
+** Set Mail in env**
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=testmail@gmail.com
+MAIL_PASSWORD=dsfrvwrtdfcrtgdfd
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=testmail@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+php artisan make:controller MailController
+php artisan make:mail TestMail
+php artisan make:view send_mail
+
+
+// Queue and Job
