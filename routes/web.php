@@ -36,5 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::post('upload', [FileUploadController::class, 'upload'])->name('file.upload');
 
     // Send Mail
-    Route::get('send', [MailController::class, 'index'])->name('mail.index');
+    Route::get('mail', [MailController::class, 'index'])->name('mail.index');
+    Route::post('send', [MailController::class, 'sendMail'])->name('mail.send');
+    Route::post('send-bulk', [MailController::class, 'sendBulkMail'])->name('mail.bulk');
+    Route::get('mail-status', [MailController::class, 'getQueueStatus'])->name('mail.status');
 });

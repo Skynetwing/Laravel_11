@@ -32,14 +32,23 @@ MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
 MAIL_USERNAME=testmail@gmail.com
-MAIL_PASSWORD=dsfrvwrtdfcrtgdfd
+MAIL_PASSWORD=
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=testmail@gmail.com
 MAIL_FROM_NAME="${APP_NAME}"
 
 php artisan make:controller MailController
 php artisan make:mail TestMail
-php artisan make:view send_mail
+php artisan make:view mail/index
+php artisan make:view mail/test-mail
+
+
+// Install debugbar
+composer require barryvdh/laravel-debugbar --dev
 
 
 // Queue and Job
+php artisan make:job SendMail
+php artisan make:queue-table
+php artisan migrate
+

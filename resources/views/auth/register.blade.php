@@ -75,7 +75,7 @@
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-pill mb-4">Sign Up</button>
-                                        <p>Already have an account? 
+                                        <p>Already have an account?
                                             <a class="text-blue" href="{{ route('login') }}">Sign in</a></p>
                                     </div>
                                 </div>
